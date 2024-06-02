@@ -6,7 +6,7 @@ const Playlist = (props) => {
         <div>
             <h2>Playlist</h2>
             <input defaultValue={"New Playlist"} />
-            <TrackList />
+            <TrackList tracks={props.playlistTracks}/>
             <button >SAVE TO SPOTIFY</button>
         </div>
     )

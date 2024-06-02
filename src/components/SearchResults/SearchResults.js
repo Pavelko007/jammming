@@ -5,7 +5,7 @@ const SearchResults = (props) => {
     return (
         <div>
             <h2>Results</h2>
-            <TrackList />
+            <TrackList tracks={props.searchResults}/>
         </div>
     )
 };
