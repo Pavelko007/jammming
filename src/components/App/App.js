@@ -4,13 +4,16 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
-const arr = [{ name: "name1", artist: "artist1", album: "album1", id: 1 },
+const arr1 = [{ name: "name1", artist: "artist1", album: "album1", id: 1 },
 { name: "name2", artist: "artist2", album: "album2", id: 2 },
 { name: "name3", artist: "artist3", album: "album3", id: 3 }];
+const arr2 = [{ name: "name4", artist: "artist4", album: "album4", id: 4 },
+{ name: "name5", artist: "artist5", album: "album5", id: 5 },
+{ name: "name6", artist: "artist6", album: "album6", id: 6 }];
 
 function App() {
-  const [searchResults, setSearchResults] = useState(arr);
-  const [playlistTracks, setPlaylistTracks] = useState(arr);
+  const [searchResults, setSearchResults] = useState(arr1);
+  const [playlistTracks, setPlaylistTracks] = useState(arr2);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const updatePlaylistName  = useCallback((name) =>{
     setPlaylistName(name);
