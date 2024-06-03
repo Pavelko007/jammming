@@ -6,7 +6,18 @@ const Track = (props) => {
 
   },[props.onAdd, props.track]);
 
+  const removeTrack = useCallback((event) =>{
+    props.onRemove(props.track);
+  },[props.onRemove, props.track]);
+
   const renderAction = ()=>{
+    if(props.isRemoval){
+      return (
+        <button onClick={removeTrack}>
+        -
+      </button>
+      )
+    }
     return (
       <button onClick={addTrack}>
         +
