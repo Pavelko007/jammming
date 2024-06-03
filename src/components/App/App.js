@@ -3,6 +3,7 @@ import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
+import Spotify from "../../util/Spotify";
 
 const arr1 = [{ name: "name1", artist: "artist1", album: "album1", id: 1 },
 { name: "name2", artist: "artist2", album: "album2", id: 2 },
@@ -31,9 +32,16 @@ function App() {
     );
   }, []);
 
-  const savePlaylist = useCallback(() => { 
-    const trackUris = playlistTracks.map(track=>track.uri);
-    //todo 
+  const savePlaylist = useCallback(() => {
+    let trackUris = playlistTracks.map(track => track.uri);
+    //todo test remove
+    trackUris = [
+      'spotify:track:2YxL4H5c4NCPm19E28OPSt'];
+
+    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+      setPlaylistName("New Playlist");
+      setPlaylistTracks([]);
+    });
   }, [playlistName, playlistTracks]);
 
   return (
