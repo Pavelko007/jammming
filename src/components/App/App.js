@@ -31,6 +31,11 @@ function App() {
     );
   }, []);
 
+  const savePlaylist = useCallback(() => { 
+    const trackUris = playlistTracks.map(track=>track.uri);
+    //todo 
+  }, [playlistName, playlistTracks]);
+
   return (
     <div>
       <h1>
@@ -46,6 +51,7 @@ function App() {
           <Playlist
             onNameChange={updatePlaylistName}
             onRemove={removeTrack}
+            onSave={savePlaylist}
             playlistTracks={playlistTracks} />
         </div>
       </div>
