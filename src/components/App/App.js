@@ -15,9 +15,15 @@ function App() {
   const [searchResults, setSearchResults] = useState(arr1);
   const [playlistTracks, setPlaylistTracks] = useState(arr2);
   const [playlistName, setPlaylistName] = useState("New Playlist");
-  const updatePlaylistName  = useCallback((name) =>{
+  const updatePlaylistName = useCallback((name) => {
     setPlaylistName(name);
-  },[]);
+  }, []);
+  const addTrack = useCallback((track) => {
+    if (playlistTracks.some(savedTrack => savedTrack.id === track.id)) {
+      return;
+    }
+    setPlaylistTracks([...playlistTracks, track]);
+  }, [playlistTracks]);
   return (
     <div>
       <h1>
@@ -26,10 +32,14 @@ function App() {
       <div className="App">
         <SearchBar />
         <div>
-          <SearchResults searchResults={searchResults}/>
+          <SearchResults
+            searchResults={searchResults}
+            onAdd={addTrack}
+          />
           <Playlist
-           onNameChange={updatePlaylistName}
-           playlistTracks={playlistTracks}/>
+            onNameChange={updatePlaylistName}
+
+            playlistTracks={playlistTracks} />
         </div>
       </div>
     </div>

@@ -9,7 +9,8 @@ const Playlist = (props) => {
     <div>
       <h2>Playlist</h2>
       <input onChange={handleNameChange} defaultValue={"New Playlist"} />
-      <TrackList tracks={props.playlistTracks} />
+      <TrackList 
+      tracks={props.playlistTracks} />
       <button >SAVE TO SPOTIFY</button>
     </div>
   )

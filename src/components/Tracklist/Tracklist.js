@@ -5,7 +5,10 @@ const TrackList = (props) => {
   return (
     <div>
       {props.tracks.map(track => {
-        return <Track key={track.id} track={track} />
+        return <Track
+         key={track.id}
+         onAdd={props.onAdd}
+         track={track} />
       })}
 
     </div>
